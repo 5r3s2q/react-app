@@ -2,16 +2,22 @@ import React, {PureComponent} from 'react'
 import Ticket from './Ticket'
 
 export default  class TicketList extends PureComponent{
-
-    state = {
-        showTicket: true
+    constructor (props) {
+        super(props)
+        this.state = {
+            showTicket: this.props.filter
+        }
+        this.handleChange = this.props.handleChange.bind(this)
     }
 
     render () {
-        const ticketel = this.props.tickets.map(
+        console.log('--- ticket list',this.props)
+
+        const {price, filter,tickets} = this.props
+        const ticketel = tickets.sort((a, b) => a.price - b.price).map(
             (ticket,index) =>
                 <section key = {index}>
-                    <Ticket ticket={ticket} isShow={this.state.showTicket}/>
+                    <Ticket ticket={ticket} isShow={filter}  price = {price} handleChange={this.handleChange}/>
                 </section>
         )
         return (

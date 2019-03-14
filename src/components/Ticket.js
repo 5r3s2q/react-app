@@ -7,11 +7,12 @@ class Ticket extends Component {
         this.state = {
             isFilter: true
         }
+        this.handleChange = this.props.handleChange.bind(this)
     }
     render () {
         const {ticket, isShow} = this.props
-
-        const body = isShow &&
+        console.log('--- ticket props',this.props)
+        const body = (isShow === ticket.stops || isShow===true) &&
             <div className='ticket'>
                 <div className="left-case">
                     <button onClick={this.handleClick}>
