@@ -14,7 +14,7 @@ class App extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
     render () {
-        console.log('--- app props',this.data.priceFormat,this.data.currentFilterTransfer )
+        // console.log('--- app props',this.data.priceFormat,this.data.currentFilterTransfer )
 
         const ticketel = tickets.tickets.sort((a, b) => a.price - b.price).map(
             (ticket,index) =>
@@ -34,11 +34,12 @@ class App extends Component {
             </div>
         )
     }
-    handleChange(id) {
+    handleChange(event) {
         this.setState({
-            currentFilterTransfer: id
+            currentFilterTransfer: event.target.value
         })
-        console.log('---handle change', id)
+        // console.log('---handle change', id)
+        console.log('---', event.target.value)
     }
 }
 export  default App

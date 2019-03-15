@@ -15,7 +15,7 @@ class Sidebar extends  Component {
     render () {
 
         const {price,filter} = this.props
-        console.log('--- sidebar props',price, filter)
+        // console.log('--- sidebar props',price, filter)
         return (<div className={'sidebar'}>
             <Currency price = {price} />
             <Transfer filter = {filter} handleChange={this.handleChange}/>
