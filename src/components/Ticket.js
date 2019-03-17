@@ -5,18 +5,37 @@ class Ticket extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            isFilter: true
+            isFilter: this.props.isShow,
+            isCheck: this.props.dataFilter
         }
         this.handleChange = this.props.handleChange.bind(this)
-        console.log(this.props)
+    }
+    componentWillMount(){
+        console.log('--- mounting', this.state.isCheck)
+    }
+    componentWillReceiveProps(nextProps) {
+        // console.log(nextProps);
+        if (nextProps.isShow !== this.state.isFilter ||nextProps.isCheck !== this.state.isCheck) this.setState({
+            isFilter: nextProps.isShow,
+            isCheck: nextProps.dataFilter
+        })
+            console.log(nextProps.dataFilter)
+    }
+    componentWillUpdate(nextProps,nextState) {
+        // console.log('-- will update',nextProps,nextState);
+        // if (nextProps.isShow !== this.state.isFilter) this.setState({
+        //     isFilter: nextProps.isShow
+        // })
     }
     render () {
-        const {ticket, isShow} = this.props
+        const {ticket} = this.props
+        // const {check} = this.state.Check
         // console.log('--- ticket props',this.props)
-        const body = (isShow === ticket.stops || isShow===true) &&
+        // console.log(ticket.stops,typeof ticket.stops)
+        const body = (this.state.isCheck.checked.includes(ticket.stops)|| (this.state.isFilter==='true'|| this.state.isFilter==='all'|| Boolean(this.checked) !== false)) &&
             <div className='ticket'>
                 <div className="left-case">
-                    <button onClick={this.handleClick}>
+                    <button >
                          {'Купить за ' + ticket.price}
                     </button>
                 </div>

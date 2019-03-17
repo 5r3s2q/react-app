@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "node-sass": "^4.11.0",
+    "package.json": "^2.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8"
@@ -22,5 +23,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-app-rewired": "^2.1.1"
+  }
 }

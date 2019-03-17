@@ -8,9 +8,15 @@ class Transfer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            value: ''
+            value: 'all',
+            isChecked: this.props.dataFilter
         };
         this.handleChange = this.props.handleChange.bind(this)
+    }
+     componentWillReceiveProps(nextProps) {
+        if (nextProps.dataFilter !== this.state.isFilter) this.setState({
+            isChecked: !nextProps.dataFilter,
+        })
     }
     render () {
 
@@ -19,25 +25,27 @@ class Transfer extends Component {
                 <h3>Колличество пересадок</h3>
                 <div className="transfer">
                     <label className='test-checkbox'>
-                        <input className="checkbox" type="checkbox"   value={this.state.value}
-                               defaultChecked={false} onChange={this.handleChange}/>
+                        <input className="checkbox" type="checkbox" value={this.state.value} defaultChecked={true}
+                               onChange={this.handleChange}
+                            checked={this.state.isChecked}
+                        />
                         <span className="label">Все</span>
                     </label>
 
                     <label className='test-checkbox'>
-                        <input className="checkbox" type="checkbox" defaultChecked={true} onChange={this.handleChange}/>
+                        <input className="checkbox" type="checkbox"  value={+0} onChange={this.handleChange}/>
                         <span className="label">Без пересадок</span>
                     </label>
                     <label className='test-checkbox'>
-                        <input className="checkbox" type="checkbox" onChange={this.handleChange}/>
+                        <input className="checkbox" type="checkbox"  value={+1} onChange={this.handleChange}/>
                         <span className="label">1 пересадка</span>
                     </label>
                     <label className='test-checkbox'>
-                        <input className="checkbox" type="checkbox" onChange={this.handleChange}/>
+                        <input className="checkbox" type="checkbox" value={+2} onChange={this.handleChange}/>
                         <span className="label">2 пересадки</span>
                     </label>
                     <label className='test-checkbox'>
-                        <input className="checkbox" type="checkbox" onChange={this.handleChange}/>
+                        <input className="checkbox" type="checkbox" value={+3} onChange={this.handleChange}/>
                         <span className="label">3 пересадки</span>
                     </label>
                 </div>
