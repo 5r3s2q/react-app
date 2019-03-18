@@ -11,15 +11,15 @@ class Ticket extends Component {
         this.handleChange = this.props.handleChange.bind(this)
     }
     componentWillMount(){
-        console.log('--- mounting', this.state.isCheck)
+        // console.log('--- mounting', this.state.isCheck)
     }
     componentWillReceiveProps(nextProps) {
-        // console.log(nextProps);
+        console.log('--- ticket next props',nextProps);
         if (nextProps.isShow !== this.state.isFilter ||nextProps.isCheck !== this.state.isCheck) this.setState({
             isFilter: nextProps.isShow,
             isCheck: nextProps.dataFilter
         })
-            console.log(nextProps.dataFilter)
+            // console.log(nextProps.dataFilter)
     }
     componentWillUpdate(nextProps,nextState) {
         // console.log('-- will update',nextProps,nextState);
@@ -32,7 +32,7 @@ class Ticket extends Component {
         // const {check} = this.state.Check
         // console.log('--- ticket props',this.props)
         // console.log(ticket.stops,typeof ticket.stops)
-        const body = (this.state.isCheck.checked.includes(ticket.stops)|| (this.state.isFilter==='true'|| this.state.isFilter==='all'|| Boolean(this.checked) !== false)) &&
+        const body = (this.state.isCheck.checked.includes(ticket.stops) || this.state.isCheck.checked.includes(-1)) &&
             <div className='ticket'>
                 <div className="left-case">
                     <button >

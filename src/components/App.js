@@ -7,10 +7,12 @@ class App extends Component {
     constructor (props) {
         super(props)
         this.state = {
-            currentFilterTransfer: 'all',
+            // currentFilterTransfer: true,
             priceFormat: true,
-            dataFilter: {'checked': ['all'],
-                        'unchecked':[0,1,2,3]}
+            dataFilter: {
+                'checked': [-1],
+                'unchecked': [0,1,2,3]
+            }
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -28,7 +30,7 @@ class App extends Component {
         return (
             <div className={'grid'}>
                 <div className="flex">
-                    <Sidebar price = {this.state.priceFormat} filter = {this.state.currentFilterTransfer} handleChange={this.handleChange}/>
+                    <Sidebar price = {this.state.priceFormat} filter = {this.state.dataFilter} handleChange={this.handleChange}/>
                     <section className={''}>
                         {ticketel}
                     </section>
