@@ -5,7 +5,7 @@ import Sidebar from './Sidebar'
 
 class App extends Component {
     constructor (props) {
-        super(props)
+        super(props);
         this.state = {
             // currentFilterTransfer: true,
             priceFormat: true,
@@ -13,7 +13,7 @@ class App extends Component {
                 'checked': [-1],
                 'unchecked': [0,1,2,3]
             }
-        }
+        };
 
         this.handleChange = this.handleChange.bind(this)
     }
@@ -22,16 +22,16 @@ class App extends Component {
 
         const ticketel = tickets.tickets.sort((a, b) => a.price - b.price).map(
             (ticket,index) =>
-                <section key = {index}>
+               // <section key = {index}>
                     <Ticket ticket={ticket} isShow={this.state.currentFilterTransfer}  price = {this.state.priceFormat}
-                            dataFilter={this.state.dataFilter} handleChange={this.handleChange}/>
-                </section>
-        )
+                            dataFilter={this.state.dataFilter} handleChange={this.handleChange} key = {index}/>
+                //</section>
+        );
         return (
             <div className={'grid'}>
                 <div className="flex">
                     <Sidebar price = {this.state.priceFormat} filter = {this.state.dataFilter} handleChange={this.handleChange}/>
-                    <section className={''}>
+                    <section className={'tickets'}>
                         {ticketel}
                     </section>
 

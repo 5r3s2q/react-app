@@ -6,15 +6,15 @@ import './scss/sidebar/sidebar.scss'
 
 class Sidebar extends  Component {
     constructor (props) {
-        super(props)
+        super(props);
         this.state = {
             showTicket: this.props.filter
-        }
+        };
         this.handleChange = this.props.handleChange.bind(this)
     }
     render () {
 
-        const {price,filter} = this.props
+        const {price,filter} = this.props;
         // console.log('--- sidebar props',price, filter)
         return (<div className={'sidebar'}>
             <Currency price = {price} />

@@ -6,15 +6,15 @@ import '../scss/sidebar/transfer.scss'
 class Transfer extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             dataFilter: this.props.filter.checked
         };
-        this.handleChange = this.props.handleChange.bind(this)
+        this.handleChange = this.props.handleChange.bind(this);
         console.log(this.props.filter.checked)
     }
      componentWillReceiveProps(nextProps) {
-        console.log('--- Recive Props',nextProps)
+        console.log('--- Receive Props',nextProps);
         if (nextProps.dataFilter !== this.state.dataFilter) this.setState({
             dataFilter: nextProps.filter.checked,
         })

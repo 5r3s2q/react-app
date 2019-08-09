@@ -3,12 +3,12 @@ import './scss/ticket/ticket.scss'
 
 class Ticket extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             isFilter: this.props.isShow,
             isCheck: this.props.dataFilter
-        }
-        this.handleChange = this.props.handleChange.bind(this)
+        };
+        this.handleChange = this.props.handleChange.bind(this);
     }
     componentWillMount(){
         // console.log('--- mounting', this.state.isCheck)
@@ -28,7 +28,7 @@ class Ticket extends Component {
         // })
     }
     render () {
-        const {ticket} = this.props
+        const {ticket} = this.props;
         // const {check} = this.state.Check
         // console.log('--- ticket props',this.props)
         // console.log(ticket.stops,typeof ticket.stops)
@@ -66,11 +66,11 @@ class Ticket extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>;
         return (
-            <div>
+            <>
                 {body}
-            </div>
+            </>
         )
     }
 }
